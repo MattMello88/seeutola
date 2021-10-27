@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('site', SiteController::class)->names('site');
-Route::resource('categoria', CategoriaController::class)->names('categoria');
-Route::resource('sitecategoria', SiteCategoriaController::class)->names('sitecategoria');
+Route::get('/index', function () {
+    return view('index');
+});
