@@ -61,7 +61,7 @@
     <link href="https://getbootstrap.com/docs/5.1/examples/headers/headers.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.1/examples/heroes/heroes.css" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>Seeutolá - Podcast. Seja bem vindo!</title>
   </head>
   <body>
     <button onclick="topFunction()" id="myBtn" title="Go to top">Inicio</button>
@@ -233,7 +233,7 @@
 
     <div class="b-example-divider"></div>
 
-  
+
     <div class="bg-secondary p-2 text-dark bg-opacity-10" id="epsodio">
       <div class="container my-5 text-center border-bottom">
         <h2 class="display-5 fw-bold">Já passaram por aqui</h2>
@@ -319,7 +319,7 @@
         </div>
       </div>
     </div>
-  
+
 
     <div class="b-example-divider"></div>
 
@@ -332,7 +332,7 @@
         </div>
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-5">
-            <img src="{{url('assets/img/convidados/perfil-1.jpg')}}" class="bd-placeholder-img rounded-circle" alt="" width="140" height="140">          
+            <img src="{{url('assets/img/convidados/perfil-1.jpg')}}" class="bd-placeholder-img rounded-circle" alt="" width="140" height="140">
             <h2>Juliana Sanches</h2>
             <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
             <p>

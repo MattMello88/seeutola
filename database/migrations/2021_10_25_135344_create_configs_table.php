@@ -15,6 +15,7 @@ class CreateConfigsTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->enum('tipo', ['Index', 'Contato', 'Epsodio', '']);
             $table->string('campo', 250);
             $table->text('valor');
             $table->timestamps();

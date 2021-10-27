@@ -18,8 +18,8 @@ class SiteCategoriaController extends Controller
     {
         $siteCategorias = SiteCategoria::all();
         foreach ($siteCategorias as $key => $siteCateg) {
-            $siteCategorias[$key]->site = $siteCategorias[$key]->site()->first();
-            $siteCategorias[$key]->site = $siteCategorias[$key]->categoria()->first();
+            $siteCategorias[$key]->site = $siteCateg->site()->first();
+            $siteCategorias[$key]->categoria = $siteCateg->categoria()->first();
         }
         return $siteCategorias;
     }
