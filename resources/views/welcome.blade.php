@@ -56,6 +56,7 @@
       }
     </style>
 
+    <script>var url = "{{ url('/') }}";</script>
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.1/examples/headers/headers.css" rel="stylesheet">
@@ -133,30 +134,30 @@
 
     <div class="bg-secondary p-2 text-dark bg-opacity-10" id="home">
       <div class="px-4 pt-5 my-5 text-center border-bottom">
-        <h2 class="display-3 fw-bold">Se eu to lá - Podcast</h2>
+        <h2 class="display-3 fw-bold" id="titulo-inicial">Se eu to lá - Podcast</h2>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">
+          <p class="lead mb-4" id="subtitulo-inicial">
             É uma conversa descontraída, longa e livre, como um papo de boteco entre amigos. Garantimos um espaço onde o convidado pode desenvolver suas ideias sem qualquer tipo de pauta ou as restrições normais de outras mídias, como agenda política/filosófica.
           </p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-            <button type="button" class="btn btn-sm btn-outline-danger btn-lg px-4 me-sm-3">
+            <a href="" type="button" class="btn btn-sm btn-outline-danger btn-lg px-4 me-sm-3" id="youtube">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
                 <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
               </svg>
               YOUTUBE
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-warning btn-lg px-4 me-sm-3">
+            </a>
+            <a href="" type="button" class="btn btn-sm btn-outline-warning btn-lg px-4 me-sm-3" id="instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
               </svg>
               INSTAGRAM
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-primary btn-lg px-4">
+            </a>
+            <a href="" type="button" class="btn btn-sm btn-outline-primary btn-lg px-4" id="facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
               </svg>
               FACEBOOK
-            </button>
+            </a>
           </div>
         </div>
         <div class="overflow-hidden" style="max-height: 30vh;">
@@ -171,13 +172,13 @@
 
     <div class="bg-secondary p-2 text-dark bg-opacity-10" id="agenda">
       <div class="container my-5 text-center border-bottom">
-        <h2 class="display-5 fw-bold">Agenda da Semana</h2>
-        <div class="col-lg-6 mx-auto mb-5">
-          <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <h2 class="display-5 fw-bold" id="titulo-agenda">Agenda da Semana</h2>
+        <div class="col-lg-6 mx-auto mb-5" >
+          <p class="lead mb-4" id="subtitulo-agenda">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
         </div>
-        <div class="row">
+        <div class="row" id="agendas">
           <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5">
-            <div class="card" >
+            <div class="card">
               <img src="{{url('assets/img/convidados/1.jpg')}}" class="img-thumbnail img-fluid card-img-top" alt="" width="100%" height="300">
               <!--<svg class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
                 <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
@@ -203,7 +204,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5" >
             <div class="card" >
               <img src="{{url('assets/img/convidados/3.jpg')}}" class="img-thumbnail img-fluid card-img-top" alt="" width="100%" height="300">
               <div class="card-body">
@@ -236,11 +237,11 @@
 
     <div class="bg-secondary p-2 text-dark bg-opacity-10" id="epsodio">
       <div class="container my-5 text-center border-bottom">
-        <h2 class="display-5 fw-bold">Já passaram por aqui</h2>
+        <h2 class="display-5 fw-bold" id="titulo-epsodio">Já passaram por aqui</h2>
         <div class="col-lg-6 mx-auto mb-5">
-          <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          <p class="lead mb-4" id="subtitulo-epsodio">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
         </div>
-        <div class="row">
+        <div class="row" id="epsodios">
           <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5">
             <div class="card" >
               <img src="{{url('assets/img/convidados/1.jpg')}}" class="img-thumbnail img-fluid card-img-top" alt="" width="100%" height="300">
@@ -326,8 +327,8 @@
 
     <div class="bg-success p-2 text-dark bg-opacity-10" id="equipe">
       <div class="container my-5 text-center border-bottom ">
-        <h1 class="display-4 fw-bold">Nossa equipe</h1>
-        <div class="col-lg-6 mx-auto mb-5">
+        <h1 class="display-4 fw-bold" id="titulo-equipe">Nossa equipe</h1>
+        <div class="col-lg-6 mx-auto mb-5" id="subtitulo-equipe">
           <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
         </div>
         <div class="row">
@@ -392,9 +393,13 @@
           </div>
 
           <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-primary bg-opacity-5" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-            <li class="ms-3"><a class="text-warning" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-            <li class="ms-3"><a class="text-primary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+            <li class="ms-3"><a class="text-danger bg-opacity-5" href="" id="footer-youtube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+              </svg>
+            </li>
+            <li class="ms-3"><a class="text-warning" href="" id="footer-instagram"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-primary" href="" id="footer-facebook"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
           </ul>
         </footer>
       </div>
@@ -402,10 +407,10 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    
+
     <script>
       //Get the button
       var mybutton = document.getElementById("myBtn");
@@ -426,6 +431,116 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       }
+
+      var loadGrid = function (event) {
+        fetch(url + '/api/busca', {
+          method: "GET",
+          headers: [
+            ["Accept", "application/json"],
+          ]
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+          let output = '';
+          data.configs.forEach(function(config){
+            if (config.campo == 'titulo-inicial'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'subtitulo-inicial'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'youtube'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'instagram'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'facebook'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'footer-youtube'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'footer-instagram'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'footer-facebook'){
+              document.getElementById(config.campo).href = config.valor;
+              document.getElementById(config.campo).innerText = config.complemento;
+            } else if (config.campo == 'titulo-agenda'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'subtitulo-agenda'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'titulo-epsodio'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'subtitulo-epsodio'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'titulo-equipe'){
+              document.getElementById(config.campo).innerText = config.valor;
+            } else if (config.campo == 'subtitulo-equipe'){
+              document.getElementById(config.campo).innerText = config.valor;
+            }
+          });
+
+          output = '';
+          data.agendas.forEach(function(agenda){
+              output += `
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5">
+                  <div class="card" >
+                    <img src="{{url('assets/img/convidados/${agenda.imagem}')}}" class="img-thumbnail img-fluid card-img-top" alt="" width="100%" height="300">
+                    <!--<svg class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                      <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>-->
+                    <div class="card-body">
+                      <h5 class="card-title">${agenda.titulo}</h5>
+                      <p class="card-text">${agenda.descricao}</p>
+                    </div>
+                    <div class="card-footer">
+                      ${agenda.dt_podcast}
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+            document.getElementById('agendas').innerHTML = output;
+
+            output = '';
+            data.epsodios.forEach(function(epsodio){
+              output += `
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4 mb-5">
+                  <div class="card" >
+                    <img src="{{url('assets/img/convidados/${epsodio.imagem}')}}" class="img-thumbnail img-fluid card-img-top" alt="" width="100%" height="300">
+                    <!--<svg class="bd-placeholder-img img-thumbnail img-fluid card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                      <title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>-->
+                    <div class="card-body">
+                      <h5 class="card-title">${epsodio.titulo}</h5>
+                      <p class="card-text">${epsodio.descricao}</p>
+                      <a href="${epsodio.link_youtube}" class="btn btn-sm btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                          <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                        </svg>
+                        <span>Assista no youtube</span>
+                      </a>
+                    </div>
+                    <div class="card-footer">
+                      ${epsodio.dt_podcast}
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+
+          document.getElementById('epsodios').innerHTML = output;
+
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+      };
+
+      loadGrid();
     </script>
 
   </body>

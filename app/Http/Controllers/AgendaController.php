@@ -25,7 +25,7 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $agenda = new Agenda;
         $agenda->titulo = $request->titulo;
         $agenda->descricao = $request->descricao;
@@ -59,7 +59,8 @@ class AgendaController extends Controller
         $agenda->descricao = $request->descricao;
         $agenda->link_youtube = $request->link_youtube;
         $agenda->dt_podcast = $request->dt_podcast;
-        $agenda->imagem = $request->imagem;
+        if (!empty($request->imagem))
+          $agenda->imagem = $request->imagem;
         $agenda->save();
     }
 

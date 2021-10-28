@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\BuscaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::resource('config', ConfigController::class)->names('config');
 Route::resource('agenda', AgendaController::class)->names('agenda');
+
+Route::get('/busca', [BuscaController::class, 'index']);

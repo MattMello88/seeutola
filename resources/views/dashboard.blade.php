@@ -28,7 +28,7 @@
   </head>
   <body class="bg-secondary bg-opacity-10">
 
-  
+
     <header class="p-3 bg-dark sticky-top text-white">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -172,11 +172,11 @@
                         </div>
                         <form method="POST" id="formSubmitEdtConfig">
                           <input type="hidden" id="ConfigEdtInputId" name="id" value="">
-                          <input type="hidden" name="method" value="PUT">
+                          <input type="hidden" name="_method" value="PUT">
                           <div class="modal-body">
                             <div class="mb-3">
-                                <label for="ConfigAddInputTipo" class="form-label">Tipo</label>
-                                <select class="form-select" id="ConfigAddInputTipo" name="tipo" aria-label="Index">
+                                <label for="ConfigEdtInputTipo" class="form-label">Tipo</label>
+                                <select class="form-select" id="ConfigEdtInputTipo" name="tipo" aria-label="Index">
                                   <option value="Index">Index</option>
                                   <option value="Contato">Contato</option>
                                   <option value="Epsodio">Epsodio</option>
@@ -214,7 +214,7 @@
                         </div>
                         <form method="POST" id="formSubmitDeleteConfig">
                           <input type="hidden" id="ConfigDeleteInputId" name="id" value="">
-                          <input type="hidden" name="method" value="DELETE">
+                          <input type="hidden" name="_method" value="DELETE">
                           <div class="modal-body">
                             <h5>Deseja Deletar o Registro <span id="ConfigDeleteInputCampo"> ?</span></h5>
                           </div>
@@ -311,7 +311,7 @@
                         <form method="POST" id="formSubmitEdtAgenda">
                           <div class="modal-body">
                             <input type="hidden" id="AgendaEdtInputId" name="id" value="">
-                            <input type="hidden" name="method" value="PUT">
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="mb-3">
                               <label for="AgendaEdtInputTitulo" class="form-label">Titulo</label>
                               <input type="text" class="form-control" id="AgendaEdtInputTitulo" name="titulo">
@@ -349,9 +349,9 @@
                           <h5 class="modal-title">Deletar Agendauração</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form method='POST' id="formSubmitEdtAgenda">
+                        <form method='POST' id="formSubmitDeleteAgenda">
                           <input type="hidden" id="AgendaDeleteInputId" name="id" value="">
-                          <input type="hidden" name="method" value="DELETE">
+                          <input type="hidden" name="_method" value="DELETE">
                           <div class="modal-body">
                             <h5>Deseja Deletar o Registro <span id="AgendaDeleteInputTitulo"> ?</span></h5>
                           </div>
@@ -379,16 +379,8 @@
 
 
     <script>
-      var EditarConfig = function (event, form){
-        event.preventDefault();
-        console.log(event);
-        console.log(form);
-        //SendPost(url + '/api/config/' + form)
-      }
 
-      var tableConfigLoag = document.getElementById('v-pills-config-tab');
-      tableConfigLoag.addEventListener('click', function (event) {
-
+      var loadGridConfig = function () {
         fetch(url + '/api/config', {
           method: "GET",
           headers: [
@@ -409,7 +401,7 @@
                 <td>${config.valor}</td>
                 <td>${config.complemento}</td>
                 <td>
-                  <a href="#" class="link-primary" data-bs-toggle="modal" data-bs-target="#modalConfigEditar" data-bs-config-id="${config.id}" data-bs-config-campo="${config.campo}" data-bs-config-valor="${config.valor}">Editar</a>
+                  <a href="#" class="link-primary" data-bs-toggle="modal" data-bs-target="#modalConfigEditar" data-bs-config-id="${config.id}" data-bs-config-campo="${config.campo}" data-bs-config-tipo="${config.tipo}" data-bs-config-complemento="${config.complemento}" data-bs-config-valor="${config.valor}">Editar</a>
                   <a href="#" class="link-danger" data-bs-toggle="modal" data-bs-target="#modalConfigDeletar" data-bs-config-id="${config.id}" data-bs-config-campo="${config.campo}">Deletar</a>
                 </td>
               </tr>
@@ -421,17 +413,16 @@
         .catch(function(err){
           console.log(err);
         });
-      });
-      
-      var formSubmitAddConfig = document.getElementById('formSubmitAddConfig');
-      formSubmitAddConfig.addEventListener('submit', function(event){
+      };
+
+      var subimitAddConfig = function(event){
         event.preventDefault();
         var form = document.getElementById('formSubmitAddConfig');
         var formData = new FormData();
         for (var i = 0; i < form.length; ++i) {
           formData.append(form[i].name, form[i].value);
         }
-        
+
         fetch(url+'/api/config', {
           method: "POST",
           headers: [
@@ -449,32 +440,100 @@
           console.log(err);
         });
 
-      });
+        loadGridConfig();
 
-      var modalConfigEditar = document.getElementById('modalConfigEditar');
-      modalConfigEditar.addEventListener('show.bs.modal', function (event) {
+        var myModal = new bootstrap.Modal(document.getElementById('modalConfigAdd'));
+        myModal.hide();
+      };
 
+      var subimitEdtConfig = function(event){
+        event.preventDefault();
+        var form = document.getElementById('formSubmitEdtConfig');
+        var formData = new FormData();
+        var id;
+        for (var i = 0; i < form.length; ++i) {
+          if (form[i].name == 'id')
+            id = form[i].value;
+          formData.append(form[i].name, form[i].value);
+          console.log(form[i].name, form[i].value);
+        }
+        console.log(formData.values());
+
+        fetch(url+'/api/config/'+id, {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+
+        loadGridConfig();
+      };
+
+      var subimitDeleteConfig = function(event){
+        event.preventDefault();
+        var form = document.getElementById('formSubmitDeleteConfig');
+        var formData = new FormData();
+        var id
+        for (var i = 0; i < form.length; ++i) {
+          if (form[i].name == 'id')
+            id = form[i].value
+          formData.append(form[i].name, form[i].value);
+        }
+
+        fetch(url+'/api/config/'+id, {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+
+        loadGridConfig();
+      };
+
+      var showEditarConfig = function (event) {
         var button = event.relatedTarget
-
         var config_id = button.getAttribute('data-bs-config-id')
         var campo = button.getAttribute('data-bs-config-campo')
         var valor = button.getAttribute('data-bs-config-valor')
+        var tipo = button.getAttribute('data-bs-config-tipo')
+        var complemento = button.getAttribute('data-bs-config-complemento')
 
         var ConfigEdtInputCampo = modalConfigEditar.querySelector('#ConfigEdtInputCampo')
         var ConfigEdtInputValor = modalConfigEditar.querySelector('#ConfigEdtInputValor')
+        var ConfigEdtInputComplemento = modalConfigEditar.querySelector('#ConfigEdtInputComplemento')
+        var ConfigEdtInputTipo = modalConfigEditar.querySelector('#ConfigEdtInputTipo')
         var ConfigEdtInputId = modalConfigEditar.querySelector('#ConfigEdtInputId')
 
         ConfigEdtInputId.value = config_id
         ConfigEdtInputCampo.value = campo
         ConfigEdtInputValor.value = valor
+        ConfigEdtInputComplemento.value = complemento
+        ConfigEdtInputTipo.value = tipo
 
-      })
+      };
 
-      var modalConfigDeletar = document.getElementById('modalConfigDeletar');
-      modalConfigDeletar.addEventListener('show.bs.modal', function (event) {
-
+      var showDeletarConfig = function (event) {
         var button = event.relatedTarget
-
         var config_id = button.getAttribute('data-bs-config-id')
         var campo = button.getAttribute('data-bs-config-campo')
 
@@ -483,12 +542,25 @@
 
         ConfigDeleteInputCampo.innerHTML = campo
         ConfigDeleteInputId.value = config_id
-      })
+      };
+
+      document.getElementById('v-pills-config-tab').addEventListener('click', loadGridConfig);
+
+      document.getElementById('modalConfigEditar').addEventListener('show.bs.modal', showEditarConfig);
+
+      document.getElementById('modalConfigDeletar').addEventListener('show.bs.modal', showDeletarConfig);
+
+      document.getElementById('formSubmitAddConfig').addEventListener('submit', subimitAddConfig);
+
+      document.getElementById('formSubmitEdtConfig').addEventListener('submit', subimitEdtConfig);
+
+      document.getElementById('formSubmitDeleteConfig').addEventListener('submit', subimitDeleteConfig);
+
+
 
       /*------------Agenda  metodos-------------*/
-      var tableAgendaLoag = document.getElementById('v-pills-agenda-tab');
-      tableAgendaLoag.addEventListener('click', function (event) {
 
+      var loadGridAgenda = function (event) {
         fetch(url + '/api/agenda', {
           method: "GET",
           headers: [
@@ -522,10 +594,9 @@
         .catch(function(err){
           console.log(err);
         });
-      });
+      };
 
-      var modalAgendaEditar = document.getElementById('modalAgendaEditar');
-      modalAgendaEditar.addEventListener('show.bs.modal', function (event) {
+      var showEditarAgenda = function (event) {
 
         var button = event.relatedTarget
 
@@ -547,13 +618,10 @@
         AgendaEdtInputLink_youtube.value = link_youtube
         AgendaEdtInputDataPodcast.value = new Date(dt_podcast).toISOString().slice(0, -1);
 
-      })
+      };
 
-      var modalAgendaDeletar = document.getElementById('modalAgendaDeletar');
-      modalAgendaDeletar.addEventListener('show.bs.modal', function (event) {
-
+      var showDeletarAgenda = function (event) {
         var button = event.relatedTarget
-
         var agenda_id = button.getAttribute('data-bs-agenda-id')
         var titulo = button.getAttribute('data-bs-agenda-titulo')
 
@@ -562,10 +630,9 @@
 
         AgendaDeleteInputCampo.innerHTML = titulo
         AgendaDeleteInputId.value = agenda_id
-      })
+      };
 
-      var formSubmitAddAgenda = document.getElementById('formSubmitAddAgenda');
-      formSubmitAddAgenda.addEventListener('submit', function(event){
+      var subimitAddAgenda = function(event){
         event.preventDefault();
 
         var form = document.getElementById('formSubmitAddAgenda');
@@ -590,7 +657,88 @@
         .catch(function(err){
           console.log(err);
         });
-      });
+
+        loadGridAgenda();
+
+        var myModal = new bootstrap.Modal(document.getElementById('modalAgendaAdd'), {
+          keyboard: false
+        });
+        myModal.hide();
+      };
+
+      var subimitEdtAgenda = function(event){
+        event.preventDefault();
+        var form = document.getElementById('formSubmitEdtAgenda');
+        var formData = new FormData();
+        var id
+        for (var i = 0; i < form.length; ++i) {
+          if (form[i].name == 'id')
+            id = form[i].value
+
+          formData.append(form[i].name, form[i].value);
+        }
+
+        fetch(url+'/api/agenda/'+id, {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+
+        loadGridAgenda();
+      };
+      var subimitDeleteAgenda = function(event){
+        event.preventDefault();
+        var form = document.getElementById('formSubmitDeleteAgenda');
+        var formData = new FormData();
+        var id
+        for (var i = 0; i < form.length; ++i) {
+          if (form[i].name == 'id')
+            id = form[i].value
+          formData.append(form[i].name, form[i].value);
+        }
+
+        fetch(url+'/api/agenda/'+id, {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+
+        loadGridAgenda();
+      };
+
+      document.getElementById('v-pills-agenda-tab').addEventListener('click', loadGridAgenda);
+
+      document.getElementById('modalAgendaEditar').addEventListener('show.bs.modal', showEditarAgenda);
+
+      document.getElementById('modalAgendaDeletar').addEventListener('show.bs.modal', showDeletarAgenda);
+
+      document.getElementById('formSubmitAddAgenda').addEventListener('submit', subimitAddAgenda);
+
+      document.getElementById('formSubmitEdtAgenda').addEventListener('submit', subimitEdtAgenda);
+
+      document.getElementById('formSubmitDeleteAgenda').addEventListener('submit', subimitDeleteAgenda);
   </script>
 
   </body>
