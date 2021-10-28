@@ -379,25 +379,6 @@
 
 
     <script>
-      var SendPost = function (link, dataPost) {
-        fetch(link, {
-          method: "POST",
-          headers: [
-            ["Accept", "application/json"],
-          ],
-          body: JSON.stringify(dataPost)
-        })
-        .then(function(res){
-          return res.json();
-        })
-        .then(function(data) {
-          console.log(data);
-        })
-        .catch(function(err){
-          console.log(err);
-        });
-      };
-
       var EditarConfig = function (event, form){
         event.preventDefault();
         console.log(event);
@@ -441,16 +422,33 @@
           console.log(err);
         });
       });
-
+      
       var formSubmitAddConfig = document.getElementById('formSubmitAddConfig');
       formSubmitAddConfig.addEventListener('submit', function(event){
-        console.log(event);        
-        var formData = new FormData();
-        for (var i = 0; i < formSubmitAddConfig.length; ++i) {
-          formData.append(formSubmitAddConfig[i].name, formSubmitAddConfig[i].value);
-        }
-        SendPost(url+'/api/config',formData);
         event.preventDefault();
+        var form = document.getElementById('formSubmitAddConfig');
+        var formData = new FormData();
+        for (var i = 0; i < form.length; ++i) {
+          formData.append(form[i].name, form[i].value);
+        }
+        
+        fetch(url+'/api/config', {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+
       });
 
       var modalConfigEditar = document.getElementById('modalConfigEditar');
@@ -546,8 +544,8 @@
         AgendaEdtInputId.value = agenda_id
         AgendaEdtInputCampo.value = titulo
         AgendaEdtInputValor.value = descricao
-        AgendaEdtInputLink_youtube = link_youtube
-        AgendaEdtInputDataPodcast = dt_podcast
+        AgendaEdtInputLink_youtube.value = link_youtube
+        AgendaEdtInputDataPodcast.value = new Date(dt_podcast).toISOString().slice(0, -1);
 
       })
 
@@ -565,6 +563,34 @@
         AgendaDeleteInputCampo.innerHTML = titulo
         AgendaDeleteInputId.value = agenda_id
       })
+
+      var formSubmitAddAgenda = document.getElementById('formSubmitAddAgenda');
+      formSubmitAddAgenda.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        var form = document.getElementById('formSubmitAddAgenda');
+        var formData = new FormData();
+        for (var i = 0; i < form.length; ++i) {
+          formData.append(form[i].name, form[i].value);
+        }
+
+        fetch(url+'/api/agenda', {
+          method: "POST",
+          headers: [
+            ["Accept", "application/json"],
+          ],
+          body: formData
+        })
+        .then(function(res){
+          return res.json();
+        })
+        .then(function(data) {
+          console.log(data);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+      });
   </script>
 
   </body>
