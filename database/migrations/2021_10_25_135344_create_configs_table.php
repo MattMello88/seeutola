@@ -13,26 +13,22 @@ class CreateConfigsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sites', function (Blueprint $table) {
+        Schema::create('configs', function (Blueprint $table) {
             $table->id();
-            $table->enum('tipo', ['Index', 'Contato', 'Epsodio', '']);
+            $table->enum('tipo', ['Index', 'Contato', 'Epsodio', 'Agenda']);
             $table->string('campo', 250);
             $table->text('valor');
+            $table->string('complemento', 255)->nullable();
             $table->timestamps();
         });
 
-        Schema::create('categorias', function (Blueprint $table) {
+        Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 250);
-            $table->timestamps();
-        });
-
-        Schema::create('sites_categorias', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('site_id');
-            $table->unsignedBigInteger('categoria_id');
-            $table->foreign('site_id')->references('id')->on('sites');
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->string('titulo', 100);
+            $table->string('descricao', 250);
+            $table->string('link_youtube', 250)->nullable();
+            $table->datetime('dt_podcast');
+            $table->string('imagem', 250)->nullable();
             $table->timestamps();
         });
     }
@@ -44,8 +40,7 @@ class CreateConfigsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sites_categorias');
-        Schema::dropIfExists('categorias');
-        Schema::dropIfExists('sites');
+        Schema::dropIfExists('configs');
+        Schema::dropIfExists('agendas');
     }
 }

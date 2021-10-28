@@ -2,9 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\SiteController;
-use App\Http\Controllers\SiteCategoriaController;
+use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\AgendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('site', SiteController::class)->names('site');
-Route::resource('categoria', CategoriaController::class)->names('categoria');
-Route::resource('sitecategoria', SiteCategoriaController::class)->names('sitecategoria');
+Route::resource('config', ConfigController::class)->names('config');
+Route::resource('agenda', AgendaController::class)->names('agenda');
