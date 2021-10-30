@@ -143,15 +143,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="ConfigAddInputCampo" class="form-label">Campo</label>
-                                <input type="text" class="form-control" id="ConfigAddInputCampo" name="campo" value="matheus">
+                                <input type="text" class="form-control" id="ConfigAddInputCampo" name="campo" value="">
                             </div>
                             <div class="mb-3">
                                 <label for="ConfigAddInputValor" class="form-label">Valor</label>
-                                <input type="text" class="form-control" id="ConfigAddInputValor" name="valor" value="teste">
+                                <input type="text" class="form-control" id="ConfigAddInputValor" name="valor" value="">
                             </div>
                             <div class="mb-3">
                                 <label for="ConfigAddInputComplemento" class="form-label">Complemento</label>
-                                <input type="text" class="form-control" id="ConfigAddInputComplemento" name="complemento" value="abc">
+                                <input type="text" class="form-control" id="ConfigAddInputComplemento" name="complemento" value="">
                             </div>
                           </div>
                           <div class="modal-footer">
