@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BuscaController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,11 @@ use App\Http\Controllers\BuscaController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::prefix('admin')->group(function () {
+    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+    Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
