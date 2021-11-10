@@ -278,7 +278,7 @@
                           <h5 class="modal-title">Adicionar na Agenda</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form method="POST" id="formSubmitAddAgenda">
+                        <form enctype="multipart/form-data" method="POST" id="formSubmitAddAgenda">
                           <div class="modal-body">
                             <div class="mb-3">
                                 <label for="AgendaAddInputTitulo" class="form-label">Título</label>
@@ -387,6 +387,8 @@
 
 
     <script>
+      checkLoginAdmin();
+
       document.getElementById('doLogoutAdmin').addEventListener('click', doLogoutAdmin);
 
       var loadGridConfig = function () {
@@ -645,10 +647,7 @@
         event.preventDefault();
 
         var form = document.getElementById('formSubmitAddAgenda');
-        var formData = new FormData();
-        for (var i = 0; i < form.length; ++i) {
-          formData.append(form[i].name, form[i].value);
-        }
+        var formData = new FormData(form);
 
         fetch(url+'/api/agenda', {
           method: "POST",
@@ -678,13 +677,11 @@
       var subimitEdtAgenda = function(event){
         event.preventDefault();
         var form = document.getElementById('formSubmitEdtAgenda');
-        var formData = new FormData();
+        var formData = new FormData(form);
         var id
         for (var i = 0; i < form.length; ++i) {
           if (form[i].name == 'id')
             id = form[i].value
-
-          formData.append(form[i].name, form[i].value);
         }
 
         fetch(url+'/api/agenda/'+id, {

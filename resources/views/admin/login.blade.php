@@ -119,7 +119,7 @@
             console.log('data');  
             setCookie('tokenAdmin', data.serviceToken);
             setCookie('admin', data.admin);
-            checkLoginAdmin();
+            window.location = url + '/admin/dashboard';
           }
 
           console.log(data);

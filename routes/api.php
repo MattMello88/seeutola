@@ -23,8 +23,10 @@ Route::prefix('admin')->group(function () {
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/checkLogin', function (Request $request) {
+      return ['Authorization' => 'true'];
+    });
 });
 
 Route::resource('config', ConfigController::class)->names('config');
