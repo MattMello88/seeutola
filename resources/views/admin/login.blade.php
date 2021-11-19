@@ -10,7 +10,7 @@
     <title>Signin Template · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
-    <script>var url = "{{ url('/') }}";</script>    
+    <script>var url = "{{ url('/') }}";</script>
 
     <!-- CSS only -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,15 +34,15 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/signin.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
-    
+
     <main class="form-signin">
-    
+
       <form id="formSubmitLogin">
         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="57" fill="currentColor" class="mb-4 bi bi-headphones" viewBox="0 0 16 16">
           <path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5z"/>
@@ -57,7 +57,7 @@
             </div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
-        </div>  
+        </div>
 
 
         <div class="form-floating">
@@ -69,11 +69,6 @@
           <label for="floatingPassword">Password</label>
         </div>
 
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
       </form>
@@ -102,7 +97,7 @@
           return res.json();
         })
         .then(function(data) {
- 
+
           if (data.admin == undefined){
             var myToastEl = document.getElementById('toast-login')
             var textoBody = document.getElementById('toast-login-body')
@@ -116,7 +111,7 @@
             var myToast = new Bootstrap.Toast(myToastEl)
             myToast.show();
           } else {
-            console.log('data');  
+            console.log('data');
             setCookie('tokenAdmin', data.serviceToken);
             setCookie('admin', data.admin);
             checkLoginAdmin();
