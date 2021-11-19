@@ -48,16 +48,29 @@ window.getCookie = function (cname) {
 
 window.checkLoginAdmin = function() {
   let token = getCookie("tokenAdmin");
-  if (token != "") {
-    window.location = url + '/admin/dashboard';
-    /*alert("Welcome again " + token);*/
-  } else {
+  
+  fetch(url+'/api/checkLogin', {
+    method: "GET",
+    headers: [
+      ["Accept", "application/json"],
+      ["Authorization", "Bearer " + token],
+    ]
+  })
+  .then(function(res){
+    return res.json();
+  })
+  .then(function(data) {
+    if (data.Authorization !== undefined){
+      if (data.Authorization !== 'true'){
+        window.location = url + '/admin/login';
+      }
+    } else {
+      window.location = url + '/admin/login';
+    }
+  })
+  .catch(function(err){
     window.location = url + '/admin/login';
-    /*token = prompt("Please enter your name:","");
-    if (token != "" && token != null) {
-      setCookie("token", token, 30);
-    }*/
-  }
+  });
 }
 
 window.doLogoutAdmin = function(event){
@@ -65,7 +78,7 @@ window.doLogoutAdmin = function(event){
     window.location = url ;
 }
 
-window.checkLoginAdmin = function() {
+window.checkLogin = function() {
     let token = getCookie("token");
     if (token != "") {
       window.location = url + '/dashboard';
@@ -74,7 +87,7 @@ window.checkLoginAdmin = function() {
     }
   }
   
-  window.doLogoutAdmin = function(event){
+  window.doLogout = function(event){
       setCookie('token', null, 0);
       window.location = url ;
   }

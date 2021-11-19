@@ -19,12 +19,16 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::prefix('admin')->group(function () {
+    Route::post('/reset-password', [AdminController::class, 'login'])->name('admin.login');
+
     Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/checkLogin', function (Request $request) {
+      return ['Authorization' => 'true'];
+    });
 });
 
 Route::resource('config', ConfigController::class)->names('config');

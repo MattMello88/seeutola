@@ -25,13 +25,20 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'imagem' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
 
         $agenda = new Agenda;
         $agenda->titulo = $request->titulo;
         $agenda->descricao = $request->descricao;
         $agenda->link_youtube = $request->link_youtube;
         $agenda->dt_podcast = $request->dt_podcast;
-        $agenda->imagem = $request->imagem;
+
+        if ($request->file('imagem')){
+            $agenda->imagem = date('YmdHis') . "." . $request->file('imagem')->getClientOriginalExtension();;
+            $request->file('imagem')->move('assets/img/convidados', $agenda->imagem);
+        }
         $agenda->save();
     }
 
@@ -59,8 +66,13 @@ class AgendaController extends Controller
         $agenda->descricao = $request->descricao;
         $agenda->link_youtube = $request->link_youtube;
         $agenda->dt_podcast = $request->dt_podcast;
-        if (!empty($request->imagem))
-          $agenda->imagem = $request->imagem;
+        if ($request->file('imagem')){
+            $agenda->imagem = date('YmdHis') . "." . $request->file('imagem')->getClientOriginalExtension();;
+            $request->file('imagem')->move('assets/img/convidados', $agenda->imagem);
+        }
+        /*if (!empty($request->imagem))
+          $agenda->imagem = $request->imagem;*/
+
         $agenda->save();
     }
 
