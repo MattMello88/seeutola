@@ -24,3 +24,21 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/login', function () {
     return view('admin/login');
 });
+
+Route::prefix('user')->group(function () {
+    Route::get('/login', function () {
+        return view('user/login');
+    });
+
+    Route::get('/register', function () {
+        return view('user/register');
+    });
+
+    Route::get('/forgot', function () {
+        return view('user/forgot');
+    });
+
+    Route::get('/recovery/{id}', function ($id) {
+        return view('user/recovery',['id' => $id]);
+    });
+});

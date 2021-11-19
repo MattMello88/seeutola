@@ -19,6 +19,8 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::prefix('admin')->group(function () {
+    Route::post('/reset-password', [AdminController::class, 'login'])->name('admin.login');
+
     Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
     Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
 });
