@@ -48,7 +48,7 @@ window.getCookie = function (cname) {
 
 window.checkLoginAdmin = function() {
   let token = getCookie("tokenAdmin");
-  
+
   fetch(url+'/api/checkLogin', {
     method: "GET",
     headers: [
@@ -86,23 +86,34 @@ window.checkLogin = function() {
       window.location = url + '/login';
     }
   }
-  
+
   window.doLogout = function(event){
       setCookie('token', null, 0);
       window.location = url ;
   }
 
-window.sendData = function(form, success, error){
+window.sendData = function(form, success, error, token = ''){
   var formData = new FormData();
   for (var i = 0; i < form.length; ++i) {
     formData.append(form[i].name, form[i].value);
   }
 
+  let headers = [];
+
+  if (token == ''){
+    headers = [
+      ["Accept", "application/json"],
+    ];
+  } else {
+    headers = [
+      ["Accept", "application/json"],
+      ["Authorization", "Bearer " + token],
+    ];
+  }
+
   fetch(form.action, {
     method: form.method.toUpperCase(),
-    headers: [
-      ["Accept", "application/json"],
-    ],
+    headers: headers,
     body: formData
   })
   .then(function(res){
