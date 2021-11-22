@@ -6,6 +6,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BuscaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,18 +18,22 @@ use App\Http\Controllers\AdminController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::prefix('user')->group(function () {
+  Route::post('/register', [UserController::class, 'store'])->name('admin.store');
+  Route::post('/login', [UserController::class, 'login'])->name('admin.login');
+  Route::post('/logout', [UserController::class, 'logout'])->name('admin.logout');    
+});
 
 Route::prefix('admin')->group(function () {
-    Route::post('/reset-password', [AdminController::class, 'login'])->name('admin.login');
-
-    Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
-    Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
+  Route::post('/reset-password', [AdminController::class, 'login'])->name('admin.login');
+  Route::post('/login', [AdminController::class, 'login'])->name('admin.login');
+  Route::post('/logout', [AdminController::class, 'logout'])->name('admin.logout');    
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/checkLogin', function (Request $request) {
-      return ['Authorization' => 'true'];
-    });
+  Route::get('/checkLogin', function (Request $request) {
+    return ['Authorization' => 'true'];
+  });
 });
 
 Route::resource('config', ConfigController::class)->names('config');

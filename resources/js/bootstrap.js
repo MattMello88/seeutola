@@ -92,6 +92,25 @@ window.checkLogin = function() {
       window.location = url ;
   }
 
+window.sendData = function(form, success, error){
+  var formData = new FormData();
+  for (var i = 0; i < form.length; ++i) {
+    formData.append(form[i].name, form[i].value);
+  }
+
+  fetch(form.action, {
+    method: form.method.toUpperCase(),
+    headers: [
+      ["Accept", "application/json"],
+    ],
+    body: formData
+  })
+  .then(function(res){
+    return res.json();
+  })
+  .then(success)
+  .catch(error);
+}
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
