@@ -11,7 +11,7 @@
 @section('content')
 <main class="form-signin">
 
-  <form id="formSubmitLogin" action="{{ url('/api/user/register') }}" method="POST">
+  <form id="formSubmitRegister" action="{{ url('/api/user/register') }}" method="POST">
     <a href="{{ url('') }}" >
       <svg xmlns="http://www.w3.org/2000/svg" width="72" height="57" fill="currentColor" class="mb-4 bi bi-headphones" viewBox="0 0 16 16">
         <path d="M8 3a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a6 6 0 1 1 12 0v5a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1V8a5 5 0 0 0-5-5z"/>
@@ -53,21 +53,10 @@
 
 @section('script')
 <script>
-  var formSubmitLoginx = function(event){
-    event.preventDefault();
-    var form = document.getElementById('formSubmitLogin');
-    console.log();
-
-    var formData = new FormData();
-    for (var i = 0; i < form.length; ++i) {
-      formData.append(form[i].name, form[i].value);
-    }
-  };
-
-  var formSubmitLogin = function(event){
+  var formSubmitRegister = function(event){
 
     event.preventDefault();
-    var form = document.getElementById('formSubmitLogin');
+    var form = document.getElementById('formSubmitRegister');
 
     sendData(form, function(data){
       console.log(data);
@@ -93,13 +82,11 @@
         textoBody.innerHTML = data.user.name + `, seu cadastro foi realizado com sucesso! <a href='${url}/user/login' class="link-warning">Logar-se</a>`
         myToast.show();
       }
-
-      console.log(data);
     }, function(err){
       console.error(err);
     })
   };
 
-  document.getElementById('formSubmitLogin').addEventListener('submit', formSubmitLogin);
+  document.getElementById('formSubmitRegister').addEventListener('submit', formSubmitRegister);
 </script>
 @endsection

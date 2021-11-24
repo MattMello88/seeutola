@@ -41,4 +41,8 @@ Route::prefix('user')->group(function () {
     Route::get('/recovery/{id}', function ($id) {
         return view('user/recovery',['id' => $id]);
     });
+
+    Route::get('/dashboard', function () {
+        return view('dashboard/main');
+    });
 });
