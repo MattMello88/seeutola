@@ -28,7 +28,6 @@
   </head>
   <body class="bg-secondary bg-opacity-10">
 
-
     <header class="p-3 bg-dark sticky-top text-white">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -40,12 +39,9 @@
           <button class="navbar-toggler position-absolute d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
         </div>
       </div>
     </header>
-
-
 
 
       <div class="container-fluid">
@@ -59,6 +55,30 @@
                     Home
                   </a>
                 </li>
+              </ul>
+              
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Configuração</span>
+                <a class="link-secondary" href="#" aria-label="Add a new report">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+
+              <ul class="nav flex-column mt-3" id="v-pills-tab">
+                <li class="nav-item">
+                  <a href="#" class="nav-link link-dark" aria-current="page" id="v-pills-config-tab" data-bs-toggle="pill" data-bs-target="#v-pills-config" type="button" role="tab" aria-controls="v-pills-config" aria-selected="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    Pagina
+                  </a>
+                </li>
+              </ul>
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Cadastros</span>
+                <a class="link-secondary" href="#" aria-label="Add a new report">
+                  <span data-feather="plus-circle"></span>
+                </a>
+              </h6>
+              <ul class="nav flex-column mt-3" id="v-pills-tab">
                 <li>
                   <a href="#" class="nav-link link-dark" id="v-pills-agenda-tab" data-bs-toggle="pill" data-bs-target="#v-pills-agenda" type="button" role="tab" aria-controls="v-pills-agenda" aria-selected="false" data-bs-dismiss="offcanvas">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -66,11 +86,16 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link link-dark" aria-current="page" id="v-pills-config-tab" data-bs-toggle="pill" data-bs-target="#v-pills-config" type="button" role="tab" aria-controls="v-pills-config" aria-selected="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                    Configuração
+                  <a href="#" class="nav-link link-dark" id="v-pills-produto-tab" data-bs-toggle="pill" data-bs-target="#v-pills-produto" type="button" role="tab" aria-controls="v-pills-produto" aria-selected="false" data-bs-dismiss="offcanvas">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                      <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                    </svg>
+                    Produtos
                   </a>
                 </li>
+              </ul>
+              <hr>
+              <ul class="nav flex-column mt-3" id="v-pills-tab">
                 <li class="nav-item">
                   <a href="#" class="nav-link link-dark" id="doLogoutAdmin">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -101,278 +126,16 @@
                 </div>
 
                 <div class="tab-pane fade" id="v-pills-config" role="tabpanel" aria-labelledby="v-pills-config-tab">
-                  <div class="px-4 pt-5 my-5 text-center border-bottom">
-                    <h2 class="display-5 fw-bold">Configurações</h2>
-                    <div class="col-lg-6 mx-auto">
-                      <p class="lead mb-4">
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfigAdd">
-                        Adicionar
-                      </button>
-                    </div>
-                    <div class="card-body">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Pagina</th>
-                            <th scope="col">Campo</th>
-                            <th scope="col">Valor</th>
-                            <th scope="col">Complemento</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody id="get-config-table">
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalConfigAdd" tabindex="-1" aria-labelledby="modalConfigAddLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Adicionar nova Configuração</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form method="POST" id="formSubmitAddConfig">
-                          <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="ConfigAddInputTipo" class="form-label">Tipo</label>
-                                <select class="form-select" id="ConfigAddInputTipo" name="tipo" aria-label="Index">
-                                  <option value="Index" selected>Index</option>
-                                  <option value="Contato">Contato</option>
-                                  <option value="Epsodio">Epsodio</option>
-                                  <option value="Agenda">Agenda</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="ConfigAddInputCampo" class="form-label">Campo</label>
-                                <input type="text" class="form-control" id="ConfigAddInputCampo" name="campo" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="ConfigAddInputValor" class="form-label">Valor</label>
-                                <input type="text" class="form-control" id="ConfigAddInputValor" name="valor" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="ConfigAddInputComplemento" class="form-label">Complemento</label>
-                                <input type="text" class="form-control" id="ConfigAddInputComplemento" name="complemento" value="">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalConfigEditar" tabindex="-1" aria-labelledby="modalConfigEditarLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Editar Configuração</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form method="POST" id="formSubmitEdtConfig">
-                          <input type="hidden" id="ConfigEdtInputId" name="id" value="">
-                          <input type="hidden" name="_method" value="PUT">
-                          <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="ConfigEdtInputTipo" class="form-label">Tipo</label>
-                                <select class="form-select" id="ConfigEdtInputTipo" name="tipo" aria-label="Index">
-                                  <option value="Index">Index</option>
-                                  <option value="Contato">Contato</option>
-                                  <option value="Epsodio">Epsodio</option>
-                                  <option value="Agenda">Agenda</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                              <label for="ConfigEdtInputCampo" class="form-label">Campo</label>
-                              <input type="text" class="form-control" id="ConfigEdtInputCampo" name="campo">
-                            </div>
-                            <div class="mb-3">
-                              <label for="ConfigEdtInputValor" class="form-label">Valor</label>
-                              <input type="text" class="form-control" id="ConfigEdtInputValor" name="valor">
-                            </div>
-                            <div class="mb-3">
-                                <label for="ConfigEdtInputComplemento" class="form-label">Complemento</label>
-                                <input type="text" class="form-control" id="ConfigEdtInputComplemento" name="complemento">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Editar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalConfigDeletar" tabindex="-1" aria-labelledby="modalConfigDeletarLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Deletar Configuração</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form method="POST" id="formSubmitDeleteConfig">
-                          <input type="hidden" id="ConfigDeleteInputId" name="id" value="">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <div class="modal-body">
-                            <h5>Deseja Deletar o Registro <span id="ConfigDeleteInputCampo"> ?</span></h5>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Deletar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+                  @include('admin.config')
                 </div> <!-- v-pills-config -->
 
                 <div class="tab-pane fade" id="v-pills-agenda" role="tabpanel" aria-labelledby="v-pills-agenda-tab">
-
-                  <div class="px-4 pt-5 my-5 text-center border-bottom">
-                    <h2 class="display-5 fw-bold">Agenda</h2>
-                    <div class="col-lg-6 mx-auto">
-                      <p class="lead mb-4">
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAgendaAdd">
-                        Adicionar
-                      </button>
-                    </div>
-                    <div class="card-body">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Link Youtube</th>
-                            <th scope="col">Data Podcast</th>
-                            <th scope="col">Imagem</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody id="get-agenda-table">
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalAgendaAdd" tabindex="-1" aria-labelledby="modalAgendaAddLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Adicionar na Agenda</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form enctype="multipart/form-data" method="POST" id="formSubmitAddAgenda">
-                          <div class="modal-body">
-                            <div class="mb-3">
-                                <label for="AgendaAddInputTitulo" class="form-label">Título</label>
-                                <input type="text" class="form-control" id="AgendaAddInputTitulo" name="titulo" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaAddInputDescricao" class="form-label">Descrição</label>
-                                <input type="text" class="form-control" id="AgendaAddInputDescricao" name="descricao" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaAddInputLink_youtube" class="form-label">Link do Youtube</label>
-                                <input type="text" class="form-control" id="AgendaAddInputLink_youtube" name="link_youtube" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaAddInputDataPodcast" class="form-label">Data Podcast</label>
-                                <input type="datetime-local" class="form-control" id="AgendaAddInputDataPodcast" name="dt_podcast" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaAddInputImagem" class="form-label">Imagem</label>
-                                <input type="file" class="form-control" id="AgendaAddInputImagem" name="imagem" value="">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Salvar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalAgendaEditar" tabindex="-1" aria-labelledby="modalAgendaEditarLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Editar Agenda</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form method="POST" id="formSubmitEdtAgenda">
-                          <div class="modal-body">
-                            <input type="hidden" id="AgendaEdtInputId" name="id" value="">
-                            <input type="hidden" name="_method" value="PUT">
-                            <div class="mb-3">
-                              <label for="AgendaEdtInputTitulo" class="form-label">Titulo</label>
-                              <input type="text" class="form-control" id="AgendaEdtInputTitulo" name="titulo">
-                            </div>
-                            <div class="mb-3">
-                              <label for="AgendaEdtInputDescricao" class="form-label">Descricao</label>
-                              <input type="text" class="form-control" id="AgendaEdtInputDescricao" name="descricao">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaEdtInputLink_youtube" class="form-label">Link_youtube</label>
-                                <input type="text" class="form-control" id="AgendaEdtInputLink_youtube" name="link_youtube">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaEdtInputDataPodcast" class="form-label">Data Podcast</label>
-                                <input type="datetime-local" class="form-control" id="AgendaEdtInputDataPodcast" name="dt_podcast" value="">
-                            </div>
-                            <div class="mb-3">
-                                <label for="AgendaEdtInputImagem" class="form-label">Imagem</label>
-                                <input type="file" class="form-control" id="AgendaEdtInputImagem" name="imagem" value="">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Editar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="modal fade" id="modalAgendaDeletar" tabindex="-1" aria-labelledby="modalAgendaDeletarLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Deletar Agendauração</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form method='POST' id="formSubmitDeleteAgenda">
-                          <input type="hidden" id="AgendaDeleteInputId" name="id" value="">
-                          <input type="hidden" name="_method" value="DELETE">
-                          <div class="modal-body">
-                            <h5>Deseja Deletar o Registro <span id="AgendaDeleteInputTitulo"> ?</span></h5>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Deletar</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
+                  @include('admin.agenda')
                 </div> <!-- Agenda -->
+
+                <div class="tab-pane fade" id="v-pills-produto" role="tabpanel" aria-labelledby="v-pills-produto-tab">
+                  @include('admin.produto')
+                </div> <!-- produto -->
               </div>
 
           </main>

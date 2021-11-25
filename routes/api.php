@@ -7,6 +7,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\BuscaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,11 @@ Route::middleware('auth:sanctum')->group(function () {
     return ['Authorization' => 'true'];
   });
 });
+
+Route::middleware('auth:sanctum')->group(function () {
+  Route::resource('produto', ProdutoController::class)->names('produto');
+});
+
 
 Route::resource('config', ConfigController::class)->names('config');
 Route::resource('agenda', AgendaController::class)->names('agenda');
