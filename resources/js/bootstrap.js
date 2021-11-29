@@ -18,79 +18,15 @@ try {
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
+window.gridjs = require('gridjs');
 
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+window.auth = require('./auth');
 
-window.setCookie = function (cname, cvalue, exdays){
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-window.getCookie = function (cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-window.checkLoginAdmin = function() {
-  let token = getCookie("tokenAdmin");
-
-  fetch(url+'/api/checkLogin', {
-    method: "GET",
-    headers: [
-      ["Accept", "application/json"],
-      ["Authorization", "Bearer " + token],
-    ]
-  })
-  .then(function(res){
-    return res.json();
-  })
-  .then(function(data) {
-    if (data.Authorization !== undefined){
-      if (data.Authorization !== 'true'){
-        window.location = url + '/admin/login';
-      }
-    } else {
-      window.location = url + '/admin/login';
-    }
-  })
-  .catch(function(err){
-    window.location = url + '/admin/login';
-  });
-}
-
-window.doLogoutAdmin = function(event){
-    setCookie('tokenAdmin', null, 0);
-    window.location = url ;
-}
-
-window.checkLogin = function() {
-    let token = getCookie("token");
-    if (token != "") {
-      window.location = url + '/dashboard';
-    } else {
-      window.location = url + '/login';
-    }
-  }
-
-  window.doLogout = function(event){
-      setCookie('token', null, 0);
-      window.location = url ;
-  }
+window.agenda = require('./components/agenda');
 
 window.sendData = function(form, success, error, token = ''){
   var formData = new FormData();

@@ -17,12 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin/dashboard');
-});
+Route::prefix('admin')->group(function () {
+    Route::get('/login', function () {
+        return view('admin/login');
+    });
 
-Route::get('/admin/login', function () {
-    return view('admin/login');
+    Route::get('/dashboard', function () {
+        return view('admin/dashboard');
+    });
+
+    Route::get('/cadastro/produto', function () {
+        return view('admin/produto');
+    });
+
+    Route::get('/cadastro/agenda', function () {
+        return view('admin/agenda');
+    });
+
+    Route::get('/configuracao/pagina', function () {
+        return view('admin/pagina');
+    });
 });
 
 Route::prefix('user')->group(function () {

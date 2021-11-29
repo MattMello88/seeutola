@@ -111,8 +111,8 @@
             myToast.show();
           } else {
             console.log('data');
-            setCookie('tokenAdmin', data.serviceToken);
-            setCookie('admin', data.admin);
+            auth.setCookie('tokenAdmin', data.serviceToken);
+            auth.setCookie('admin', data.admin);
             window.location = url + '/admin/dashboard';
           }
 

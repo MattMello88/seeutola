@@ -89,8 +89,8 @@
         myToast.show();
       } else {
         console.log('data');  
-        setCookie('tokenUser', data.serviceToken);
-        setCookie('User', data.user);
+        auth.setCookie('tokenUser', data.serviceToken);
+        auth.setCookie('User', data.user);
         window.location = url + '/user/dashboard';
       }
 
