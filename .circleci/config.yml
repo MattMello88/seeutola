@@ -99,9 +99,14 @@ workflows:
       - migrate-test:
           filters:
             branches:
-              ignore: master
+              only: /branche-.*/
+              ignore: main
+            tags:
+              ignore: /.*/
       - migrate-prod:
           filters:
             branches:
-              only: master
+              only: main
+            tags:
+              ignore: /.*/
               
