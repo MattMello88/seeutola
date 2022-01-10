@@ -57,7 +57,7 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
-            
+
       - run:
           name: Show Node version
           command: |
@@ -123,6 +123,7 @@ workflows:
   version: 2
   build-deploy:
     jobs: 
+      - build
       - migrate-test:
           filters:
             branches:
@@ -136,5 +137,3 @@ workflows:
               only: main
             tags:
               ignore: /.*/
-      
-      - build
