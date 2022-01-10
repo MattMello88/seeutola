@@ -39,10 +39,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
   Route::resource('produto', ProdutoController::class)->names('produto');
+  Route::resource('config', ConfigController::class)->names('config');
+  Route::resource('agenda', AgendaController::class)->names('agenda');
 });
 
-
-Route::resource('config', ConfigController::class)->names('config');
-Route::resource('agenda', AgendaController::class)->names('agenda');
 
 Route::get('/busca', [BuscaController::class, 'index']);

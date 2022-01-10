@@ -45,6 +45,8 @@ const checkLoginAdmin = function() {
   .catch(function(err){
     window.location = url + '/admin/login';
   });
+
+  return token;
 }
 
 const doLogoutAdmin = function(event){

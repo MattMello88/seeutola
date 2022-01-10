@@ -15,7 +15,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        return Produto::where(['admin_id' => $request->user()->id]);
+        return Produto::where(['admin_id' => $request->user()->id])->get();
     }
 
     /**
@@ -25,7 +25,7 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'nome' => 'required',
             'descricao' => 'required',
@@ -46,6 +46,8 @@ class ProdutoController extends Controller
             $produto->img = date('YmdHis') . "." . $request->file('img')->getClientOriginalExtension();;
             $request->file('img')->move('assets/img/produto', $produto->img);
         }
+
+        $produto->save();
     }
 
     /**
@@ -68,15 +70,13 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        $produto->delete();
-
+        
         $request->validate([
             'nome' => 'required',
             'descricao' => 'required',
-            'preco' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'preco' => 'required'
         ]);
-
+        
         $produto_novo = new Produto;
         $produto_novo->nome = $request->nome;
         $produto_novo->descricao = $request->descricao;
@@ -85,11 +85,22 @@ class ProdutoController extends Controller
         $produto_novo->desconto = $request->desconto;
         $produto_novo->slug = Str::slug($request->nome, '-');
         $produto_novo->admin_id = $request->user()->id;
+        
 
         if ($request->file('img')){
             $produto_novo->img = date('YmdHis') . "." . $request->file('img')->getClientOriginalExtension();;
             $request->file('img')->move('assets/img/produto', $produto_novo->img);
+            dd('test1');
+        } else {
+            $produto_novo->img = $produto->img;
         }
+        
+
+        $produto_novo->save();
+        
+        $produto->delete();
+        
+        return ["produto" => $produto_novo];
     }
 
     /**

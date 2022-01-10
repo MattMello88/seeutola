@@ -147,6 +147,6 @@
 
 @section('script')
 <script>
-  agenda();
+  agenda.Agenda();
 </script>
 @endsection

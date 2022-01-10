@@ -38,16 +38,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -66,7 +56,7 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        return ["admin" => $admin];
     }
 
     /**

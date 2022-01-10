@@ -26,10 +26,11 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Título</th>
+            <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
-            <th scope="col">Link Youtube</th>
-            <th scope="col">Data Podcast</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Preço antigo</th>
+            <th scope="col">Desconto</th>
             <th scope="col">Imagem</th>
             <th scope="col">Action</th>
           </tr>
@@ -50,24 +51,28 @@
         <form enctype="multipart/form-data" method="POST" id="formSubmitAddProduto">
           <div class="modal-body">
             <div class="mb-3">
-                <label for="ProdutoAddInputTitulo" class="form-label">Título</label>
-                <input type="text" class="form-control" id="ProdutoAddInputTitulo" name="titulo" value="">
+                <label for="ProdutoAddInputNome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="ProdutoAddInputNome" name="nome" value="">
             </div>
             <div class="mb-3">
                 <label for="ProdutoAddInputDescricao" class="form-label">Descrição</label>
                 <input type="text" class="form-control" id="ProdutoAddInputDescricao" name="descricao" value="">
             </div>
             <div class="mb-3">
-                <label for="ProdutoAddInputLink_youtube" class="form-label">Link do Youtube</label>
-                <input type="text" class="form-control" id="ProdutoAddInputLink_youtube" name="link_youtube" value="">
+                <label for="ProdutoAddInputPreco" class="form-label">Preço</label>
+                <input type="text" class="form-control" id="ProdutoAddInputPreco" name="preco" value="">
             </div>
             <div class="mb-3">
-                <label for="ProdutoAddInputDataPodcast" class="form-label">Data Podcast</label>
-                <input type="datetime-local" class="form-control" id="ProdutoAddInputDataPodcast" name="dt_podcast" value="">
+                <label for="ProdutoAddInputDataPreco_antigo" class="form-label">Preco antigo</label>
+                <input type="text" class="form-control" id="ProdutoAddInputPreco_antigo" name="antigo_preco" value="">
+            </div>
+            <div class="mb-3">
+                <label for="ProdutoAddInputDesconto" class="form-label">Desconto</label>
+                <input type="text" class="form-control" id="ProdutoAddInputDesconto" name="desconto" value="">
             </div>
             <div class="mb-3">
                 <label for="ProdutoAddInputImagem" class="form-label">Imagem</label>
-                <input type="file" class="form-control" id="ProdutoAddInputImagem" name="imagem" value="">
+                <input type="file" class="form-control" id="ProdutoAddInputImagem" name="img" value="">
             </div>
           </div>
           <div class="modal-footer">
@@ -91,24 +96,28 @@
             <input type="hidden" id="ProdutoEdtInputId" name="id" value="">
             <input type="hidden" name="_method" value="PUT">
             <div class="mb-3">
-              <label for="ProdutoEdtInputTitulo" class="form-label">Titulo</label>
-              <input type="text" class="form-control" id="ProdutoEdtInputTitulo" name="titulo">
+              <label for="ProdutoEdtInputNome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="ProdutoEdtInputNome" name="nome">
             </div>
             <div class="mb-3">
               <label for="ProdutoEdtInputDescricao" class="form-label">Descricao</label>
               <input type="text" class="form-control" id="ProdutoEdtInputDescricao" name="descricao">
             </div>
             <div class="mb-3">
-                <label for="ProdutoEdtInputLink_youtube" class="form-label">Link_youtube</label>
-                <input type="text" class="form-control" id="ProdutoEdtInputLink_youtube" name="link_youtube">
+                <label for="ProdutoEdtInputPreco" class="form-label">Preço</label>
+                <input type="text" class="form-control" id="ProdutoEdtInputPreco" name="preco">
             </div>
             <div class="mb-3">
-                <label for="ProdutoEdtInputDataPodcast" class="form-label">Data Podcast</label>
-                <input type="datetime-local" class="form-control" id="ProdutoEdtInputDataPodcast" name="dt_podcast" value="">
+                <label for="ProdutoEdtInputPreco_antigo" class="form-label">Preço antigo</label>
+                <input type="text" class="form-control" id="ProdutoEdtInputPreco_antigo" name="antigo_preco" value="">
+            </div>
+            <div class="mb-3">
+                <label for="ProdutoEdtInputDesconto" class="form-label">Desconto</label>
+                <input type="text" class="form-control" id="ProdutoEdtInputDesconto" name="desconto" value="">
             </div>
             <div class="mb-3">
                 <label for="ProdutoEdtInputImagem" class="form-label">Imagem</label>
-                <input type="file" class="form-control" id="ProdutoEdtInputImagem" name="imagem" value="">
+                <input type="file" class="form-control" id="ProdutoEdtInputImagem" name="img" value="">
             </div>
           </div>
           <div class="modal-footer">
@@ -146,6 +155,8 @@
 
 
 @section('script')
-
+<script>
+  produto.Produto();
+</script>
 @endsection
 

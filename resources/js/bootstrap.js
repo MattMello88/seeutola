@@ -24,9 +24,9 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.auth = require('./auth');
-
 window.agenda = require('./components/agenda');
+window.produto = require('./components/produto');
+window.pagina = require('./components/pagina');
 
 window.sendData = function(form, success, error, token = ''){
   var formData = new FormData();

@@ -25,7 +25,12 @@
 
     <title>Seeutolá · @yield('title')</title>
 
+    <script src="{{ url('js/auth.js') }}"></script>
     <script>var url = "{{ url('/') }}";</script>    
+
+    <script>
+      //auth.checkLoginAdmin();
+    </script>
 
     <style>
       .bd-placeholder-img {

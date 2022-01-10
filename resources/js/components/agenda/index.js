@@ -5,6 +5,7 @@ const Agenda = () => {
       method: "GET",
       headers: [
         ["Accept", "application/json"],
+        ["Authorization", "Bearer " + tokenAdmin],
       ]
     })
     .then(function(res){
@@ -29,7 +30,6 @@ const Agenda = () => {
         `;
       });
       document.getElementById('get-agenda-table').innerHTML = output;
-  
     })
     .catch(function(err){
       console.log(err);
@@ -37,7 +37,6 @@ const Agenda = () => {
   };
   
   var showEditarAgenda = function (event) {
-  
     var button = event.relatedTarget
   
     var agenda_id = button.getAttribute('data-bs-agenda-id')
@@ -82,6 +81,7 @@ const Agenda = () => {
       method: "POST",
       headers: [
         ["Accept", "application/json"],
+        ["Authorization", "Bearer " + tokenAdmin],
       ],
       body: formData
     })
@@ -95,11 +95,10 @@ const Agenda = () => {
       console.log(err);
     });
   
+    form.reset();
     loadGridAgenda();
   
-    var myModal = new bootstrap.Modal(document.getElementById('modalAgendaAdd'), {
-      keyboard: false
-    });
+    var myModal = Bootstrap.Modal.getInstance(document.getElementById('modalAgendaAdd'));
     myModal.hide();
   };
   
@@ -117,6 +116,7 @@ const Agenda = () => {
       method: "POST",
       headers: [
         ["Accept", "application/json"],
+        ["Authorization", "Bearer " + tokenAdmin],
       ],
       body: formData
     })
@@ -131,6 +131,9 @@ const Agenda = () => {
     });
   
     loadGridAgenda();
+
+    var myModal = Bootstrap.Modal.getInstance(document.getElementById('modalAgendaEditar'));
+    myModal.hide();
   };
   
   var subimitDeleteAgenda = function(event){
@@ -148,6 +151,7 @@ const Agenda = () => {
       method: "POST",
       headers: [
         ["Accept", "application/json"],
+        ["Authorization", "Bearer " + tokenAdmin],
       ],
       body: formData
     })
@@ -162,6 +166,9 @@ const Agenda = () => {
     });
   
     loadGridAgenda();
+
+    var myModal = Bootstrap.Modal.getInstance(document.getElementById('modalAgendaDeletar'));
+    myModal.hide();
   };
   
   window.addEventListener('load', loadGridAgenda);

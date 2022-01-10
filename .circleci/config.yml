@@ -1,0 +1,107 @@
+# PHP CircleCI 2.0 configuration file
+# See: https://circleci.com/docs/2.0/language-php/
+version: 2
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  build:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      # Specify the version you desire here
+      - image: circleci/php:7.1-node-browsers
+      - image: cimg/node:15.1
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # Using the RAM variation mitigates I/O contention
+      # for database intensive operations.
+      # - image: circleci/mysql:5.7-ram
+      #
+      # - image: redis:2.8.19
+
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+
+      - node/install-yarn
+
+      - run:
+          name: Show Node version
+          command: |
+            node --version
+            yarn --version
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Compilar produção
+          command: yarn run prod
+
+  migrate-test:
+    
+    docker:
+
+      - image: circleci/php:7.1-node-browsers
+      - image: cimg/node:15.1
+
+    steps:
+      - checkout
+
+      - node/install-yarn
+
+      # prepare the database
+      - run: 
+        - name: Migrate Teste
+        - command: php artisan migrate --env=testing
+      
+      - run: apt-get update && apt-get -qq install git-ftp
+      - deploy:
+          name: Deploy to host if branch is branch
+          command: |
+            echo "Branches"
+            echo "Initiating Push site: ${FTP_server_test}"
+            git ftp push -u "${FTP_username_test}" -p "${FTP_password_test}" ftp://${FTP_server_test}/
+
+  migrate-prod:
+    
+    docker:
+
+      - image: circleci/php:7.1-node-browsers
+      - image: cimg/node:15.1
+
+    steps:
+      - checkout
+
+      - node/install-yarn
+
+      # prepare the database
+      - run: 
+        - name: Migrate Prod
+        - command: php artisan migrate --env=prod
+
+      - run: apt-get update && apt-get -qq install git-ftp
+      - deploy:
+          name: Deploy to host if branch is branch
+          command: |
+            echo "Branches"
+            echo "Initiating Push site: ${FTP_server_test}"
+            git ftp push -u "${FTP_username}" -p "${FTP_password}" ftp://${FTP_server}/
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs: 
+      - build
+
+      - migrate-test:
+          filters:
+            branches:
+              ignore: master
+      - migrate-prod:
+          filters:
+            branches:
+              only: master
+              

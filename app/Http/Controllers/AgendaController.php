@@ -40,6 +40,7 @@ class AgendaController extends Controller
             $request->file('imagem')->move('assets/img/convidados', $agenda->imagem);
         }
         $agenda->save();
+        return $agenda;
     }
 
     /**
@@ -74,6 +75,7 @@ class AgendaController extends Controller
           $agenda->imagem = $request->imagem;*/
 
         $agenda->save();
+        return $agenda;
     }
 
     /**
@@ -85,5 +87,6 @@ class AgendaController extends Controller
     public function destroy(Agenda $agenda)
     {
         $agenda->delete();
+        return $agenda;
     }
 }

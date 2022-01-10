@@ -25,7 +25,12 @@
 
     <title>Seeutolá · Podcast. @yield('title')</title>
 
-    <script>var url = "{{ url('/') }}";</script>
+    <script src="{{ url('js/auth.js') }}"></script>
+    <script>var url = "{{ url('/') }}";</script>    
+
+    <script>
+      var tokenAdmin = auth.checkLoginAdmin();
+    </script>
     
   </head>
   <body class="bg-secondary bg-opacity-10">

@@ -9,6 +9,7 @@
     <title>Signin Template · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+    <script src="{{ url('js/auth.js') }}"></script>
     <script>var url = "{{ url('/') }}";</script>
 
     <!-- CSS only -->
