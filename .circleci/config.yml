@@ -101,8 +101,6 @@ workflows:
   version: 2
   build-deploy:
     jobs: 
-      - build
-
       - migrate-test:
           filters:
             branches:
@@ -116,4 +114,5 @@ workflows:
               only: main
             tags:
               ignore: /.*/
-              
+      
+      - build
