@@ -61,8 +61,8 @@ jobs:
 
       # prepare the database
       - run: 
-        name: Migrate Teste
-        command: php artisan migrate --env=testing
+          name: Migrate Teste
+          command: php artisan migrate --env=testing
       
       - run: apt-get update && apt-get -qq install git-ftp
       - deploy:
@@ -86,8 +86,8 @@ jobs:
 
       # prepare the database
       - run: 
-        name: Migrate Prod
-        command: php artisan migrate --env=prod
+          name: Migrate Prod
+          command: php artisan migrate --env=prod
 
       - run: apt-get update && apt-get -qq install git-ftp
       - deploy:
