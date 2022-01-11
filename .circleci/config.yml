@@ -133,6 +133,8 @@ jobs:
             sudo docker-php-ext-install pdo_mysql
             sudo docker-php-ext-enable pdo_mysql
 
+      - run: apt-get update && apt-get -qq install git-ftp
+      
       - restore_cache:
           keys:
             # "composer.lock" can be used if it is committed to the repo
@@ -157,7 +159,6 @@ jobs:
           name: Seeding Prod
           command: php artisan db:seed --force
 
-      - run: apt-get update && apt-get -qq install git-ftp
       - deploy:
           name: Deploy to host if branch is branch
           command: |
