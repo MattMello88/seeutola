@@ -85,7 +85,10 @@ jobs:
       - run: 
           name: Migrate Teste
           command: php artisan migrate --env=testing
-      
+      - run: 
+          name: Seeding Prod
+          command: php artisan migrate:refresh --seed
+
       - run: apt-get update && apt-get -qq install git-ftp
       - deploy:
           name: Deploy to host if branch is branch
@@ -125,7 +128,10 @@ jobs:
       # prepare the database
       - run: 
           name: Migrate Prod
-          command: php artisan migrate --env=prod
+          command: php artisan migrate --env=production
+      - run: 
+          name: Seeding Prod
+          command: php artisan db:seed
 
       - run: apt-get update && apt-get -qq install git-ftp
       - deploy:
