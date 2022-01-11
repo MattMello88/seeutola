@@ -128,7 +128,7 @@ jobs:
       # prepare the database
       - run: 
           name: Migrate Prod
-          command: php artisan migrate --env=production
+          command: php artisan migrate --env=production --force
       - run: 
           name: Seeding Prod
           command: php artisan db:seed
