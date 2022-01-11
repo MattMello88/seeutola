@@ -75,7 +75,7 @@ jobs:
 
       - image: circleci/php:7.4-node-browsers
       - image: cimg/node:15.1
-      - image: circleci/node:8-browsers
+      - image: wagnerstephan/bitbucket-git-ftp:latest
 
     steps:
       - checkout
@@ -115,7 +115,7 @@ jobs:
 
       - image: circleci/php:7.4-node-browsers
       - image: cimg/node:15.1
-      - image: circleci/node:8-browsers
+      - image: wagnerstephan/bitbucket-git-ftp:latest
 
     steps:
       - checkout
