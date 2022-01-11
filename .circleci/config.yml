@@ -81,6 +81,12 @@ jobs:
 
       - node/install-yarn
 
+      - run:
+          name: "Prepare Environment"
+          command: |
+            sudo apt update
+            sudo docker-php-ext-install zip
+            
       # prepare the database
       - run: 
           name: Migrate Teste
@@ -108,6 +114,17 @@ jobs:
       - checkout
 
       - node/install-yarn
+
+      - run:
+          name: "Prepare Environment"
+          command: |
+            sudo apt update
+            sudo docker-php-ext-install zip
+      #- run:
+      #    name: Install PHP extensions
+      #    command: |
+      #      sudo docker-php-ext-install pdo_mysql
+      #      sudo docker-php-ext-enable pdo_mysql
 
       - restore_cache:
           keys:
