@@ -105,7 +105,7 @@ jobs:
           name: Git FTP 
           command: |
             sudo apt-get update 
-            suido apt-get -qq install git-ftp
+            sudo apt-get -qq install git-ftp
       - deploy:
           name: Deploy to host if branch is branch
           command: |
@@ -165,7 +165,7 @@ jobs:
           name: Git FTP 
           command: |
             sudo apt-get update 
-            suido apt-get -qq install git-ftp
+            sudo apt-get -qq install git-ftp
       - deploy:
           name: Deploy to host if branch is branch
           command: |
