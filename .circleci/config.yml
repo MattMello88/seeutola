@@ -74,7 +74,7 @@ jobs:
     docker:
 
       - image: cimg/node:15.1
-      - image: wagnerstephan/bitbucket-git-ftp:latest
+      - image: circleci/node:8-browsers
       - image: circleci/php:7.4-node-browsers
 
     steps:
@@ -118,7 +118,7 @@ jobs:
     docker:
 
       - image: cimg/node:15.1
-      - image: wagnerstephan/bitbucket-git-ftp:latest
+      - image: circleci/node:8-browsers
       - image: circleci/php:7.4-node-browsers
 
     steps:
