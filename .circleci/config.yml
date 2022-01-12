@@ -6,7 +6,7 @@ orbs:
   # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
   # Orbs reduce the amount of configuration required for common tasks.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
-  node: circleci/node@4.1
+  node: circleci/node@5.0.0
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -17,7 +17,7 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.4-node-browsers
-      - image: cimg/node:15.1
+      - image: cimg/node:14.17.6
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -72,9 +72,8 @@ jobs:
     
     docker:
 
-      - image: cimg/node:15.1
       - image: circleci/php:7.4-node-browsers
-      - image: wagnerstephan/bitbucket-git-ftp:latest
+      - image: cimg/node:14.17.6
 
     steps:
       - checkout
@@ -116,9 +115,8 @@ jobs:
     
     docker:
 
-      - image: cimg/node:15.1
       - image: circleci/php:7.4-node-browsers
-      - image: wagnerstephan/bitbucket-git-ftp:latest
+      - image: cimg/node:14.17.6
 
     steps:
       - checkout
