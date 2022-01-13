@@ -117,6 +117,7 @@ jobs:
 
       - image: circleci/php:7.4-node-browsers
       - image: cimg/node:14.17.6
+      - image: wagnerstephan/bitbucket-git-ftp:latest
 
     steps:
       - checkout
