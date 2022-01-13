@@ -171,7 +171,7 @@ jobs:
             git config git-ftp.url ftp://${FTP_server}
             git config git-ftp.user ${FTP_username}
             git config git-ftp.password "${FTP_password}"
-            git ftp init
+            git ftp push -vv
             
       
             
