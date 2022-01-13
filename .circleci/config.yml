@@ -173,7 +173,7 @@ jobs:
             git config git-ftp.password "${FTP_password}"
             git ftp init
             git ftp push
-      # git ftp push -u "${FTP_username}" -p "${FTP_password}" ftp://${FTP_server}:21/
+      # git ftp push -u ${FTP_username} -p "${FTP_password}" ftp://${FTP_server}/
       
             
 
