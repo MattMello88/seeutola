@@ -74,6 +74,7 @@ jobs:
 
       - image: circleci/php:7.4-node-browsers
       - image: cimg/node:14.17.6
+      - image: wagnerstephan/bitbucket-git-ftp:latest
 
     steps:
       - checkout
@@ -97,7 +98,7 @@ jobs:
           command: php artisan migrate --env=testing
       - run: 
           name: Seeding Teste
-          command: php artisan migrate:refresh --seed
+          command: php artisan migrate:refresh --seed --env=testing
 
       - run:
           name: Git FTP 
@@ -108,8 +109,11 @@ jobs:
           name: Deploy to host if branch is branch
           command: |
             echo "Branches"
-            echo "Initiating Push site: ${FTP_server_test}"
-            git ftp push -u "${FTP_username_test}" -p "${FTP_password_test}" ftp://${FTP_server_test}/
+            echo "Initiating Push site: ${FTP_server} ${FTP_username} ${FTP_password}"
+            git config git-ftp.url ftp://${FTP_server}/
+            git config git-ftp.user ${FTP_username}
+            git config git-ftp.password "${FTP_password}"
+            git ftp init
 
   migrate-prod:
     
@@ -157,7 +161,7 @@ jobs:
           command: php artisan migrate --env=production --force
       - run: 
           name: Seeding Prod
-          command: php artisan db:seed --force
+          command: php artisan db:seed --env=production --force
       
       - run:
           name: Git FTP 
@@ -172,7 +176,7 @@ jobs:
             git config git-ftp.url ftp://${FTP_server}/
             git config git-ftp.user ${FTP_username}
             git config git-ftp.password "${FTP_password}"
-            git ftp init
+            git ftp push
 workflows:
   version: 2
   build-deploy:
