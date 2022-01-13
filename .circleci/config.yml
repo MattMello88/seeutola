@@ -169,7 +169,7 @@ jobs:
           command: |
             echo "Branches"
             echo "Initiating Push site: ${FTP_server}"
-            git ftp push -u ${FTP_username} -p "${FTP_password}" ftp://${FTP_server}/
+            git ftp init
 workflows:
   version: 2
   build-deploy:
